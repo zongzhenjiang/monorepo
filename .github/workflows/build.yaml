@@ -13,6 +13,5 @@ jobs:
 
       - name: Compare changes from previous commit
         run: |
-          git fetch origin main
           CHANGED=$(git diff HEAD...HEAD^1)
           echo "$CHANGED"
