@@ -13,5 +13,5 @@ jobs:
 
       - name: Compare changes from previous commit
         run: |
-          CHANGED=$(git diff HEAD...HEAD^1)
+          CHANGED=$(git diff HEAD^1)
           echo "$CHANGED"
