@@ -1,0 +1,18 @@
+on:
+  push:
+      branches: [main]
+  
+jobs:
+  loop-through-projects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compare changes from previous commit
+        run: |
+          git fetch origin main
+          CHANGED=$(git diff --name-only origin/main...HEAD)
+          echo "$CHANGED"
